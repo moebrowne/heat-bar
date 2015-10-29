@@ -15,12 +15,9 @@ var heatBar = {
     },
 
     drawGradient: function(posX) {
-
-
-
         var gradient = this.context.createLinearGradient((posX-50),0,(posX+50),0);
         gradient.addColorStop(0,"rgba(255,0,0,0)");
-        gradient.addColorStop(0.5,"rgba(255,0,0,0.2)");
+        gradient.addColorStop(0.5,"rgba(255,0,0,0.1)");
         gradient.addColorStop(1,"rgba(255,0,0,0)");
         this.context.fillStyle = gradient;
         this.context.fillRect((posX-50),0,(posX+50),30);
