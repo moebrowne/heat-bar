@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Heat Bar</title>
+    <script src="app.js"></script>
+</head>
+<body>
+
+<canvas id="cont" width="400" height="50"></canvas>
+
+<script>
+    heatBar.init(document.getElementById("cont"));
+
+    for(i=0;i<16;i++) {
+        heatBar.drawGradient(getRandomIntInclusive(0,300));
+    }
+    function getRandomIntInclusive(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+</script>
+
+</body>
+</html>
