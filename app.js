@@ -3,6 +3,10 @@ var heatBar = {
     context: null,
     canvas: null,
 
+    blip: {
+        width: 100, //px
+    },
+
     // Set everything up
     init: function(canvasObject) {
 
@@ -15,12 +19,12 @@ var heatBar = {
     },
 
     drawGradient: function(posX) {
-        var gradient = this.context.createLinearGradient((posX-50),0,(posX+50),0);
+        var gradient = this.context.createLinearGradient((posX-(this.blip.width/2)),0,(posX+(this.blip.width/2)),0);
         gradient.addColorStop(0,"rgba(255,0,0,0)");
-        gradient.addColorStop(0.5,"rgba(255,0,0,0.1)");
+        gradient.addColorStop(0.5,"rgba(255,0,0,1)");
         gradient.addColorStop(1,"rgba(255,0,0,0)");
         this.context.fillStyle = gradient;
-        this.context.fillRect((posX-50),0,(posX+50),30);
+        this.context.fillRect(0,0,(posX+this.blip.width/2),30);
     }
 
 };
