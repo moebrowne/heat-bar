@@ -5,6 +5,11 @@ var heatBar = {
 
     blip: {
         width: 100, //px
+        colour: {
+            r: 255,
+            g: 0,
+            b: 0,
+        }
     },
 
     // Set everything up
@@ -18,11 +23,15 @@ var heatBar = {
 
     },
 
+    getBlipColour: function(opacity) {
+        return 'rgba('+this.blip.colour.r+','+this.blip.colour.g+','+this.blip.colour.b+', '+opacity+')';
+    },
+
     drawGradient: function(posX) {
         var gradient = this.context.createLinearGradient((posX-(this.blip.width/2)),0,(posX+(this.blip.width/2)),0);
-        gradient.addColorStop(0,"rgba(255,0,0,0)");
-        gradient.addColorStop(0.5,"rgba(255,0,0,1)");
-        gradient.addColorStop(1,"rgba(255,0,0,0)");
+        gradient.addColorStop(0, this.getBlipColour(0));
+        gradient.addColorStop(0.5, this.getBlipColour(0.1));
+        gradient.addColorStop(1, this.getBlipColour(0));
         this.context.fillStyle = gradient;
         this.context.fillRect(0,0,(posX+this.blip.width/2),30);
     }
